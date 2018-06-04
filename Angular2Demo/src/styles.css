@@ -1,0 +1,17 @@
+.boldClass{
+    font-weight:bold;
+}
+
+.italicClass{
+    font-style:italic;
+}
+
+.colorClassRed{
+    color:red;
+}
+
+.colorClassBlue{
+    color:blue;
+}
+
+h1{font-size:xx-large}

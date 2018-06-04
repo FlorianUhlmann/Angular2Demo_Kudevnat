@@ -1,0 +1,16 @@
+﻿table{
+    color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: x-large;
+  border-collapse:collapse;
+
+}
+
+td{
+   border: 1px dotted pink;
+
+}
+
+thead{
+    border: 1px solid yellow;
+}
