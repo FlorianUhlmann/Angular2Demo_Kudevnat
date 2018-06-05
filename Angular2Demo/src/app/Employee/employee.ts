@@ -4,5 +4,4 @@
     gender: string;
     annualSalary: number;
     dateOfBirth: string;
-    
 }
