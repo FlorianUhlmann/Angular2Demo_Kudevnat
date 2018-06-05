@@ -8,38 +8,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var EmployeeListComponent = /** @class */ (function () {
-    function EmployeeListComponent() {
-        this.employees = [
-            { code: 'emp101', name: 'Tom', gender: 'Male', annualSalary: 5500, dateOfBirth: '6/25/1988' },
-            { code: 'emp102', name: 'Alex', gender: 'Male', annualSalary: 5700.95, dateOfBirth: '9/6/1982' },
-            { code: 'emp103', name: 'Mike', gender: 'Male', annualSalary: 5900, dateOfBirth: '12/8/1979' },
-            { code: 'emp104', name: 'Mary', gender: 'Female', annualSalary: 6500.826, dateOfBirth: '10/14/1980' },
-        ];
+var employee_service_1 = require("./employee.service");
+var EmployeeListComponent = (function () {
+    function EmployeeListComponent(_employeeService) {
+        this._employeeService = _employeeService;
+        this.selectedEmployeeCountRadioButton = 'All';
     }
-    EmployeeListComponent.prototype.getEmployees = function () {
-        this.employees = [
-            { code: 'emp101', name: 'Tom', gender: 'Male', annualSalary: 5500, dateOfBirth: '6/25/1988' },
-            { code: 'emp102', name: 'Alex', gender: 'Male', annualSalary: 5700.95, dateOfBirth: '9/6/1982' },
-            { code: 'emp103', name: 'Mike', gender: 'Male', annualSalary: 5900, dateOfBirth: '12/8/1979' },
-            { code: 'emp104', name: 'Mary', gender: 'Female', annualSalary: 6500.826, dateOfBirth: '12/10/1980' },
-            { code: 'emp105', name: 'Boc', gender: 'Neutral', annualSalary: 10500.826, dateOfBirth: '10/01/1780' },
-        ];
+    EmployeeListComponent.prototype.ngOnInit = function () {
+        this.employees = this._employeeService.getEmployees(); //liveHook to retreive data
     };
-    EmployeeListComponent.prototype.trackByEmpCode = function (index, employee) {
-        return employee.code;
+    EmployeeListComponent.prototype.onEmployeeCountButtonChange = function (selectedRadioButtonValue) {
+        this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
     };
-    EmployeeListComponent = __decorate([
-        core_1.Component({
-            selector: 'list-employee',
-            templateUrl: 'app/Employee/employeeList.component.html',
-            styleUrls: ['app/Employee/employeeList.component.css']
-        }),
-        __metadata("design:paramtypes", [])
-    ], EmployeeListComponent);
+    EmployeeListComponent.prototype.getTotalEmployeesCount = function () {
+        return this.employees.length;
+    };
+    EmployeeListComponent.prototype.getTotalMaleEmployeesCount = function () {
+        return this.employees.filter(function (e) { return e.gender === "Male"; }).length;
+    };
+    EmployeeListComponent.prototype.getTotalFemaleEmployeesCount = function () {
+        return this.employees.filter(function (e) { return e.gender === "Female"; }).length;
+    };
     return EmployeeListComponent;
 }());
+EmployeeListComponent = __decorate([
+    core_1.Component({
+        selector: 'list-employee',
+        templateUrl: 'app/Employee/employeeList.component.html',
+        styleUrls: ['app/Employee/employeeList.component.css'],
+        providers: [employee_service_1.EmployeeService]
+    }),
+    __metadata("design:paramtypes", [employee_service_1.EmployeeService])
+], EmployeeListComponent);
 exports.EmployeeListComponent = EmployeeListComponent;
 //# sourceMappingURL=employeeList.component.js.map

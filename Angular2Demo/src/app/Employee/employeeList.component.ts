@@ -1,33 +1,37 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
+import { IEmployee } from './employee';
+import { EmployeeService } from './employee.service';
 
 @Component({
     selector: 'list-employee',
     templateUrl: 'app/Employee/employeeList.component.html',
-    styleUrls: ['app/Employee/employeeList.component.css']
+    styleUrls: ['app/Employee/employeeList.component.css'],
+    providers: [EmployeeService]
 })
-export class EmployeeListComponent {
-    employees: any[];
+export class EmployeeListComponent implements OnInit{
+    employees: IEmployee[];
+    selectedEmployeeCountRadioButton: string = 'All';
 
-    constructor() {
-        this.employees  = [
-            { code: 'emp101', name: 'Tom', gender: 'Male', annualSalary: 5500, dateOfBirth: '6/25/1988' },
-            { code: 'emp102', name: 'Alex', gender: 'Male', annualSalary: 5700.95, dateOfBirth: '9/6/1982' },
-            { code: 'emp103', name: 'Mike', gender: 'Male', annualSalary: 5900, dateOfBirth: '12/8/1979' },
-            { code: 'emp104', name: 'Mary', gender: 'Female', annualSalary: 6500.826, dateOfBirth: '10/14/1980' },
-        ];
+    constructor(private _employeeService: EmployeeService) {  //dependency injection
+    }
+    ngOnInit() {
+        this.employees=this._employeeService.getEmployees();   //liveHook to retreive data
     }
 
-    getEmployees(): void {
-        this.employees = [
-            { code: 'emp101', name: 'Tom', gender: 'Male', annualSalary: 5500, dateOfBirth: '6/25/1988' },
-            { code: 'emp102', name: 'Alex', gender: 'Male', annualSalary: 5700.95, dateOfBirth: '9/6/1982' },
-            { code: 'emp103', name: 'Mike', gender: 'Male', annualSalary: 5900, dateOfBirth: '12/8/1979' },
-            { code: 'emp104', name: 'Mary', gender: 'Female', annualSalary: 6500.826, dateOfBirth: '12/10/1980' },
-            { code: 'emp105', name: 'Boc', gender: 'Neutral', annualSalary: 10500.826, dateOfBirth: '10/01/1780' },
-        ];
+
+    onEmployeeCountButtonChange(selectedRadioButtonValue: string): void{
+        this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
     }
 
-    trackByEmpCode(index: number, employee: any): string {
-        return employee.code;
-    } 
+    getTotalEmployeesCount(): number {
+        return this.employees.length;
+    }
+    getTotalMaleEmployeesCount(): number {
+        return this.employees.filter(e=>e.gender === "Male").length;
+    }
+
+    getTotalFemaleEmployeesCount(): number {
+        return this.employees.filter(e => e.gender === "Female").length;
+    }
+
 }

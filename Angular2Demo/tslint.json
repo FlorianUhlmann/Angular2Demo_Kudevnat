@@ -1,32 +1,32 @@
 {
   "rules": {
     "class-name": true,
-    "comment-format": <
+    "comment-format": [
       true,
       "check-space"
     ],
     "curly": true,
     "eofline": true,
     "forin": true,
-    "indent": <
+    "indent": [
       true,
       "spaces"
     ],
     "label-position": true,
     "label-undefined": true,
-    "max-line-length": <
+    "max-line-length": [
       true,
       140
     ],
     "member-access": false,
-    "member-ordering": <
+    "member-ordering": [
       true,
       "static-before-instance",
       "variables-before-functions"
     ],
     "no-arg": true,
     "no-bitwise": true,
-    "no-console": <
+    "no-console": [
       true,
       "debug",
       "info",
@@ -51,26 +51,26 @@
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
-    "one-line": <
+    "one-line": [
       true,
       "check-open-brace",
       "check-catch",
       "check-else",
       "check-whitespace"
     ],
-    "quotemark": <
+    "quotemark": [
       true,
       "single"
     ],
     "radix": true,
-    "semicolon": <
+    "semicolon": [
       "always"
     ],
-    "triple-equals": <
+    "triple-equals": [
       true,
       "allow-null-check"
     ],
-    "typedef-whitespace": <
+    "typedef-whitespace": [
       true,
       {
         "call-signature": "nospace",
@@ -81,7 +81,7 @@
       }
     ],
     "variable-name": false,
-    "whitespace": <
+    "whitespace": [
       true,
       "check-branch",
       "check-decl",

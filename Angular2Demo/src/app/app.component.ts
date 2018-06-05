@@ -3,8 +3,9 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'my-app',
-    template: `<div>
-                       <h1 font-size="xx-large">{{pageHeader ? getFullName() : 'NoHeader'}}</h1>
+    template: `<div> 
+                    <body style="background: url(https://images.vogel.de/vogelonline/bdb/1245400/1245458/4.jpg) ; background-size: 100% 100% ">
+                        <h1 font-size="xx-large">{{pageHeader ? getFullName() : 'NoHeader'}}</h1>
                         <my-employee></my-employee>    
                         <img src='{{imagePath}}'/>
                         <br/><br/>
@@ -14,7 +15,16 @@ import { Component } from '@angular/core';
                         <br/>
                         You enterd : {{name2way}}
                         <br/>
-<list-employee></list-employee>
+                        <div style="background-color: white">
+                            <list-employee></list-employee>
+                        </div> 
+                        <div style="background-color: green">
+                                <h2 font-size="x-large">LifecycleHook</h2>
+                                Your Text : <input type='text' [(ngModel)]='userText'/>
+                                <br/>   <br/> 
+                                <simple [simpleInput]='userText'></simple>
+                        </div>
+                    </body>
                </div>`
 })
 export class AppComponent {
@@ -30,7 +40,8 @@ export class AppComponent {
     appylBoldClass: boolean = true;
     applyItalicClass: boolean = false;
     name2way: string = "[] is porperty () is event Binding";
-
+    //LifecycleHool
+    userText: string = 'Pragim';
     isBold: boolean = true;
     fontSize: number = 50;
     isItalic: boolean = true;

@@ -20,6 +20,8 @@ var AppComponent = /** @class */ (function () {
         this.appylBoldClass = true;
         this.applyItalicClass = false;
         this.name2way = "[] is porperty () is event Binding";
+        //LifecycleHool
+        this.userText = 'Pragim';
         this.isBold = true;
         this.fontSize = 50;
         this.isItalic = true;
@@ -49,7 +51,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<div>\n                       <h1 font-size=\"xx-large\">{{pageHeader ? getFullName() : 'NoHeader'}}</h1>\n                        <my-employee></my-employee>    \n                        <img src='{{imagePath}}'/>\n                        <br/><br/>\n                        <button on-click='onClick()'>Click me baby</button>\n                        <br/><br/>\n                        Name : <input [(ngModel)]='name2way'/>       \n                        <br/>\n                        You enterd : {{name2way}}\n                        <br/>\n<list-employee></list-employee>\n               </div>"
+            template: "<div> \n                    <body style=\"background: url(https://images.vogel.de/vogelonline/bdb/1245400/1245458/4.jpg) ; background-size: 100% 100% \">\n                        <h1 font-size=\"xx-large\">{{pageHeader ? getFullName() : 'NoHeader'}}</h1>\n                        <my-employee></my-employee>    \n                        <img src='{{imagePath}}'/>\n                        <br/><br/>\n                        <button on-click='onClick()'>Click me baby</button>\n                        <br/><br/>\n                        Name : <input [(ngModel)]='name2way'/>       \n                        <br/>\n                        You enterd : {{name2way}}\n                        <br/>\n                        <div style=\"background-color: white\">\n                            <list-employee></list-employee>\n                        </div> \n                        <div style=\"background-color: green\">\n                                <h2 font-size=\"x-large\">LifecycleHook</h2>\n                                Your Text : <input type='text' [(ngModel)]='userText'/>\n                                <br/>   <br/> \n                                <simple [simpleInput]='userText'></simple>\n                        </div>\n                    </body>\n               </div>"
         })
     ], AppComponent);
     return AppComponent;
