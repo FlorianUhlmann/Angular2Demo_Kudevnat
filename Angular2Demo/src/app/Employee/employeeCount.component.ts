@@ -10,7 +10,7 @@ export class EmployeeCountComponent {
 
     selectedRadioButtonValue: string = 'All';
     @Output()
-    countRadioButtonSelectionChanged: EventEmitter<string> = new EventEmitter<string>;
+    countRadioButtonSelectionChanged: EventEmitter<string> = new EventEmitter<string>() ;
     @Input()
     all: number;
     @Input()

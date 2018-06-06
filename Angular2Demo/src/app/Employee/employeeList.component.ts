@@ -11,11 +11,16 @@ import { EmployeeService } from './employee.service';
 export class EmployeeListComponent implements OnInit{
     employees: IEmployee[];
     selectedEmployeeCountRadioButton: string = 'All';
+    statusMessage: string = 'Loading Data.Please wait...';
 
     constructor(private _employeeService: EmployeeService) {  //dependency injection
     }
     ngOnInit() {
-        this.employees=this._employeeService.getEmployees();   //liveHook to retreive data
+        this._employeeService.getEmployees()
+            .subscribe((employeeDataSrvr) => this.employees = employeeDataSrvr,
+            (error) => {
+            this.statusMessage = 'Problem with the service, please try later again YEAHHHH';
+            });   //liveHook to retrive data, (is favourable to constructor, because it waits)
     }
 
 

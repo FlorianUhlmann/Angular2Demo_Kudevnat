@@ -14,9 +14,14 @@ var EmployeeListComponent = (function () {
     function EmployeeListComponent(_employeeService) {
         this._employeeService = _employeeService;
         this.selectedEmployeeCountRadioButton = 'All';
+        this.statusMessage = 'Loading Data.Please wait...';
     }
     EmployeeListComponent.prototype.ngOnInit = function () {
-        this.employees = this._employeeService.getEmployees(); //liveHook to retreive data
+        var _this = this;
+        this._employeeService.getEmployees()
+            .subscribe(function (employeeDataSrvr) { return _this.employees = employeeDataSrvr; }, function (error) {
+            _this.statusMessage = 'Problem with the service, please try later again YEAHHHH';
+        }); //liveHook to retrive data, (is favourable to constructor, because it waits)
     };
     EmployeeListComponent.prototype.onEmployeeCountButtonChange = function (selectedRadioButtonValue) {
         this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
