@@ -7,26 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var EmployeeTitelPipe = /** @class */ (function () {
-    function EmployeeTitelPipe() {
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent() {
     }
-    EmployeeTitelPipe.prototype.transform = function (value, gender) {
-        if (gender.toLowerCase() == 'male') {
-            return "Mr." + value;
-        }
-        else if (gender.toLowerCase() == 'neutral') {
-            return value;
-        }
-        else {
-            return "Miss " + value;
-        }
-    };
-    EmployeeTitelPipe = __decorate([
-        core_1.Pipe({
-            name: 'employeeTitle'
+    HomeComponent = __decorate([
+        core_1.Component({
+            template: '<h1> This is the home Page</h1>'
         })
-    ], EmployeeTitelPipe);
-    return EmployeeTitelPipe;
+    ], HomeComponent);
+    return HomeComponent;
 }());
-exports.EmployeeTitelPipe = EmployeeTitelPipe;
-//# sourceMappingURL=employeeTitle.pipe.js.map
+exports.HomeComponent = HomeComponent;
+//# sourceMappingURL=home.component.js.map

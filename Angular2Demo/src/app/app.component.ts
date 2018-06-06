@@ -4,6 +4,15 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'my-app',
     template: `<div> 
+                    <div style="padding:10px">
+                        <ul class="nav nav-tabs">
+                            <li> <a routerLink="home">Home</a></li>
+                            <li> <a routerLink="employees">Employees</a></li>
+                        </ul>
+                    </div>
+                    <div style="padding:40px">
+                        <router-outlet></router-outlet>
+                    </div>
                     <body style="background: url(https://images.vogel.de/vogelonline/bdb/1245400/1245458/4.jpg) ; background-size: 100% 100% ">
                         <h1 font-size="xx-large">{{pageHeader ? getFullName() : 'NoHeader'}}</h1>
                         <my-employee></my-employee>    

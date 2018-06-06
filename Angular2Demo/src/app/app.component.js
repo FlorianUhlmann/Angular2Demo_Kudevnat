@@ -5,8 +5,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.pageHeader = "TrySite of Angular Tutorial by Kudvenat";
         this.imagePath = 'https://www.sciencealert.com/images/2018-04/processed/019-dna-i-motif-structure-living-cells-0_1024.jpg';
@@ -47,13 +48,13 @@ var AppComponent = (function () {
         };
         return styles;
     };
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: 'my-app',
+            template: "<div> \n                    <div style=\"padding:10px\">\n                        <ul class=\"nav nav-tabs\">\n                            <li> <a routerLink=\"home\">Home</a></li>\n                            <li> <a routerLink=\"employees\">Employees</a></li>\n                        </ul>\n                    </div>\n                    <div style=\"padding:40px\">\n                        <router-outlet></router-outlet>\n                    </div>\n                    <body style=\"background: url(https://images.vogel.de/vogelonline/bdb/1245400/1245458/4.jpg) ; background-size: 100% 100% \">\n                        <h1 font-size=\"xx-large\">{{pageHeader ? getFullName() : 'NoHeader'}}</h1>\n                        <my-employee></my-employee>    \n                        <img src='{{imagePath}}'/>\n                        <br/><br/>\n                        <button on-click='onClick()'>Click me baby</button>\n                        <br/><br/>\n                        Name : <input [(ngModel)]='name2way'/>       \n                        <br/>\n                        You enterd : {{name2way}}\n                        <br/>\n                        <div style=\"background-color: white\">\n                            <list-employee></list-employee>\n                        </div> \n                        <div style=\"background-color: green\">\n                                <h2 font-size=\"x-large\">LifecycleHook</h2>\n                                Your Text : <input type='text' [(ngModel)]='userText'/>\n                                <br/>   <br/> \n                                <simple [simpleInput]='userText'></simple>\n                        </div>\n                    </body>\n               </div>"
+        })
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        template: "<div> \n                    <body style=\"background: url(https://images.vogel.de/vogelonline/bdb/1245400/1245458/4.jpg) ; background-size: 100% 100% \">\n                        <h1 font-size=\"xx-large\">{{pageHeader ? getFullName() : 'NoHeader'}}</h1>\n                        <my-employee></my-employee>    \n                        <img src='{{imagePath}}'/>\n                        <br/><br/>\n                        <button on-click='onClick()'>Click me baby</button>\n                        <br/><br/>\n                        Name : <input [(ngModel)]='name2way'/>       \n                        <br/>\n                        You enterd : {{name2way}}\n                        <br/>\n                        <div style=\"background-color: white\">\n                            <list-employee></list-employee>\n                        </div> \n                        <div style=\"background-color: green\">\n                                <h2 font-size=\"x-large\">LifecycleHook</h2>\n                                Your Text : <input type='text' [(ngModel)]='userText'/>\n                                <br/>   <br/> \n                                <simple [simpleInput]='userText'></simple>\n                        </div>\n                    </body>\n               </div>"
-    })
-], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
